@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Color</th>
+      <th scope="col">DailyPrice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let carDetail of carDetails">
+      <th scope="row">{{ carDetail.id }}</th>
+      <td>{{ carDetail.brand }}</td>
+      <td>{{ carDetail.color }}</td>
+      <td>{{ carDetail.dailyPrice }}</td>
+    </tr>
+  </tbody>
+</table>
