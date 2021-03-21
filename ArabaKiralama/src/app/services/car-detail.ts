@@ -4,15 +4,13 @@ import { Observable } from 'rxjs';
 import { CarDetailResponseModel } from '../models/carDetailResponseModel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CarDetailService {
+  apiUrl = 'https://localhost:44325/api/cars/cardetails';
+  constructor(private httpClient: HttpClient) {}
 
-  apiUrl="https://localhost:44325/api/cars/cardetails";
-  constructor(private httpClient: HttpClient) { }
-
-  getCardetails():Observable<CarDetailResponseModel>{
-    return this.httpClient
-    .get<CarDetailResponseModel>(this.apiUrl)
+  getCardetails(): Observable<CarDetailResponseModel> {
+    return this.httpClient.get<CarDetailResponseModel>(this.apiUrl);
   }
 }
