@@ -1,14 +1,38 @@
+<!--<ul class="list-group">
+  <li routerLink="/brand">Tüm ürünler</li>
+  <li
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cardetails/brand/{{ brand.id }}"
+    *ngFor="let brand of brands"
+    [class]="getCurrentBrandClass(brand)"
+  >
+    {{ brand.brands }}
+  </li>
+</ul>
+-->
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">id</th>
-      <th scope="col">brands</th>
+      <th scope="col">Markalar</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let brand of brands">
-      <th scope="row">{{ brand.id }}</th>
-      <td>{{ brand.brands }}</td>
+    <tr [class]="getAllBrandClass()" routerLink="/cardetails">
+      Tüm Ürünler
+    </tr>
+    <tr
+      (click)="setCurrentBrand(brand)"
+      routerLink="/cardetails/brand/{{ brand.id }}"
+      *ngFor="let brand of brands"
+      [class]="getCurrentBrandClass(brand)"
+    >
+      {{
+        brand.brands
+      }}
+      <!--<td>{{ brand.brands }}</td>-->
     </tr>
   </tbody>
 </table>
+<h5 *ngIf="currentBrand">{{ currentBrand.brands }} seçtiniz</h5>
+<!---->
