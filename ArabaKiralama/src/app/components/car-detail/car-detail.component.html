@@ -8,7 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let carDetail of carDetails">
+    <tr
+      *ngFor="let carDetail of carDetails"
+      (click)="setCurrentBrand(carDetail)"
+      routerLink="/carımages/car/{{ carDetail.id }}"
+    >
       <th scope="row">{{ carDetail.id }}</th>
       <td>{{ carDetail.brand }}</td>
       <td>{{ carDetail.color }}</td>
@@ -16,3 +20,5 @@
     </tr>
   </tbody>
 </table>
+
+<h5 *ngIf="currentCar">{{ currentCar.id }}</h5>

@@ -1,14 +1,29 @@
 <table class="table table-striped">
-  <thead>
+  <!--
+ <thead>
     <tr>
       <th scope="col">id</th>
       <th scope="col">Colors</th>
     </tr>
   </thead>
+ -->
   <tbody>
-    <tr *ngFor="let color of colors">
-      <th scope="row">{{ color.id }}</th>
-      <td>{{ color.colors }}</td>
+    <tr [class]="getAllBrandClass()" routerLink="/cardetails">
+      Tüm Renkler
+    </tr>
+    <tr
+      *ngFor="let color of colors"
+      (click)="setCurrentColor(color)"
+      [class]="getCurrentBrandClass(color)"
+      routerLink="/cardetails/color/{{ color.id }}"
+    >
+      <!--<th scope="row">{{ color.id }}</th> -->
+      <!-- <td></td>-->
+      {{
+        color.colors
+      }}
     </tr>
   </tbody>
 </table>
+
+<h5 *ngIf="currentColor">{{ currentColor.colors }} seçtiniz</h5>

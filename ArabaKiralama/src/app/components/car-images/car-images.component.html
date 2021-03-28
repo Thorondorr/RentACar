@@ -1,0 +1,8 @@
+<!-- <h5 *ngFor="let carImages of carImages">{{ carImages }} a</h5>  -->
+
+<img
+  *ngFor="let carImage of carImages"
+  src="https://localhost:44325/{{ carImage.imagesPath }}"
+  class="img-fluid"
+  alt="..."
+/>

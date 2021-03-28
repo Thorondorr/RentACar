@@ -11,6 +11,7 @@ import { CarDetailService } from 'src/app/services/car-detail.service';
 export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[] = [];
   dataLoaded = false;
+  currentCar: CarDetail;
   constructor(
     private cardetailService: CarDetailService,
     private activatedRoute: ActivatedRoute
@@ -18,6 +19,9 @@ export class CarDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
+      if (params['colorId']) {
+        this.getCarDetailByColor(params['colorId']);
+      }
       if (params['id']) {
         this.getCarDetailByBrand(params['id']);
       } else {
@@ -36,5 +40,15 @@ export class CarDetailComponent implements OnInit {
       this.carDetails = response.data;
       this.dataLoaded = true;
     });
+  }
+  getCarDetailByColor(colorId: number) {
+    this.cardetailService.getCarDetailByColor(colorId).subscribe((response) => {
+      this.carDetails = response.data;
+      this.dataLoaded = true;
+    });
+  }
+
+  setCurrentBrand(car: CarDetail) {
+    this.currentCar = car;
   }
 }
