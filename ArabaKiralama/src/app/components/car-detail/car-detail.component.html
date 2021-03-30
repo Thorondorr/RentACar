@@ -1,22 +1,38 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Araba Ara</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="Arama ifadesi giriniz"
+  />
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{ filterText }} aradınız
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">id</th>
       <th scope="col">Brand</th>
       <th scope="col">Color</th>
-      <th scope="col">DailyPrice</th>
+      <th scope="col">(Bürüt)Günlük Fiyat</th>
+      <th scope="col">(KDV)Günlük Fiyat</th>
     </tr>
   </thead>
   <tbody>
     <tr
-      *ngFor="let carDetail of carDetails"
+      *ngFor="let carDetail of carDetails | filterPipeBrand: filterText"
       (click)="setCurrentBrand(carDetail)"
       routerLink="/carımages/car/{{ carDetail.id }}"
     >
       <th scope="row">{{ carDetail.id }}</th>
       <td>{{ carDetail.brand }}</td>
       <td>{{ carDetail.color }}</td>
-      <td>{{ carDetail.dailyPrice }}</td>
+      <td>{{ carDetail.dailyPrice | currency }}</td>
+      <td>{{ carDetail.dailyPrice | vatAdded: 18 | currency }}</td>
     </tr>
   </tbody>
 </table>

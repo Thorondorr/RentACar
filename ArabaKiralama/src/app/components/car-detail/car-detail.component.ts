@@ -12,6 +12,8 @@ export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[] = [];
   dataLoaded = false;
   currentCar: CarDetail;
+  filterText: string;
+
   constructor(
     private cardetailService: CarDetailService,
     private activatedRoute: ActivatedRoute
