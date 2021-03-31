@@ -20,21 +20,32 @@
       <th scope="col">Color</th>
       <th scope="col">(Bürüt)Günlük Fiyat</th>
       <th scope="col">(KDV)Günlük Fiyat</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr
-      *ngFor="let carDetail of carDetails | filterPipeBrand: filterText"
+      *ngFor="let carDetail of carDetails | filterPipeColor: filterText"
       (click)="setCurrentBrand(carDetail)"
-      routerLink="/carımages/car/{{ carDetail.id }}"
     >
       <th scope="row">{{ carDetail.id }}</th>
       <td>{{ carDetail.brand }}</td>
       <td>{{ carDetail.color }}</td>
       <td>{{ carDetail.dailyPrice | currency }}</td>
       <td>{{ carDetail.dailyPrice | vatAdded: 18 | currency }}</td>
+      <td>
+        <button
+          (click)="addToCart(carDetail)"
+          type="button"
+          class="btn btn-success"
+        >
+          Sepete Ekle
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
 
 <h5 *ngIf="currentCar">{{ currentCar.id }}</h5>
+
+<!--   routerLink="/carımages/car/{{ carDetail.id }}"-->
