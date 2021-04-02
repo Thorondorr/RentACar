@@ -1,5 +1,5 @@
-<table class="table table-striped">
-  <!--
+<!--<table class="table table-striped"> -->
+<!--
  <thead>
     <tr>
       <th scope="col">id</th>
@@ -7,23 +7,49 @@
     </tr>
   </thead>
  -->
-  <tbody>
-    <tr [class]="getAllBrandClass()" routerLink="/cardetails">
-      Tüm Renkler
-    </tr>
-    <tr
-      *ngFor="let color of colors"
-      (click)="setCurrentColor(color)"
-      [class]="getCurrentBrandClass(color)"
-      routerLink="/cardetails/color/{{ color.id }}"
-    >
-      <!--<th scope="row">{{ color.id }}</th> -->
-      <!-- <td></td>-->
-      {{
-        color.colors
-      }}
+<tbody>
+  <tr [class]="getAllBrandClass()" routerLink="/cardetails">
+    Tüm Renkler
+  </tr>
+  <tr
+    *ngFor="let color of colors"
+    (click)="setCurrentColor(color)"
+    [class]="getCurrentBrandClass(color)"
+    routerLink="/cardetails/color/{{ color.id }}"
+  >
+    <!--<th scope="row">{{ color.id }}</th> -->
+    <!-- <td></td>-->
+    {{
+      color.colors
+    }}
+    <!--
     </tr>
   </tbody>
 </table>
+-->
+  </tr>
+</tbody>
 
-<h5 *ngIf="currentColor">{{ currentColor.colors }} seçtiniz</h5>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <select id="currentColor" name="currentColor" [(ngModel)]="currentColor">
+        <option *ngFor="let color of colors" [ngValue]="color">
+          {{ color.colors }}
+        </option>
+      </select>
+      <h5 *ngIf="currentColor">{{ currentColor.colors }}</h5>
+    </div>
+
+    <div class="col-sm">
+      <button
+        (click)="getColor()"
+        routerLink="/cardetails/"
+        type="button"
+        class="btn btn-primary"
+      >
+        Filtrele
+      </button>
+    </div>
+  </div>
+</div>

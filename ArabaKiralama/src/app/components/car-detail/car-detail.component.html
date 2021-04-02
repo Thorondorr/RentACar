@@ -25,7 +25,7 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let carDetail of carDetails | filterPipeColor: filterText"
+      *ngFor="let carDetail of carDetails | filterPipeColor: deneme"
       (click)="setCurrentBrand(carDetail)"
     >
       <th scope="row">{{ carDetail.id }}</th>

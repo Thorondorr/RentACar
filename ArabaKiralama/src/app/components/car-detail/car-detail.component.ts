@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CartService } from 'src/app/services/cart.service';
+import { ColorDataService } from 'src/app/services/data-share/color-data.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -16,11 +17,14 @@ export class CarDetailComponent implements OnInit {
   currentCar: CarDetail;
   filterText: string;
 
+  deneme: string = 'mavi';
+
   constructor(
     private cardetailService: CarDetailService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
-    private cartService: CartService
+    private cartService: CartService,
+    private colorData: ColorDataService
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +38,7 @@ export class CarDetailComponent implements OnInit {
         this.getCarDetail();
       }
     });
+    this.colorData.currentMessage.subscribe((color) => (this.deneme = color));
   }
   getCarDetail() {
     this.cardetailService.getCardetails().subscribe((response) => {
@@ -62,4 +67,6 @@ export class CarDetailComponent implements OnInit {
     this.toastrService.success('sepete eklendi', car.brand);
     this.cartService.addToCart(car);
   }
+
+  getColorData() {}
 }
