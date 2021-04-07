@@ -7,6 +7,8 @@
     </tr>
   </thead>
  -->
+
+<!-- 
 <tbody>
   <tr [class]="getAllBrandClass()" routerLink="/cardetails">
     Tüm Renkler
@@ -16,40 +18,36 @@
     (click)="setCurrentColor(color)"
     [class]="getCurrentBrandClass(color)"
     routerLink="/cardetails/color/{{ color.id }}"
-  >
-    <!--<th scope="row">{{ color.id }}</th> -->
-    <!-- <td></td>-->
-    {{
+  >-->
+<!--<th scope="row">{{ color.id }}</th> -->
+<!-- <td></td>-->
+<!-- {{
       color.colors
-    }}
-    <!--
+    }} -->
+<!--
     </tr>
   </tbody>
 </table>
--->
-  </tr>
+--><!--
+ </tr>
 </tbody>
+-->
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <select id="currentColor" name="currentColor" [(ngModel)]="currentColor">
-        <option *ngFor="let color of colors" [ngValue]="color">
-          {{ color.colors }}
-        </option>
-      </select>
-      <h5 *ngIf="currentColor">{{ currentColor.colors }}</h5>
-    </div>
-
-    <div class="col-sm">
-      <button
-        (click)="getColor()"
-        routerLink="/cardetails/"
-        type="button"
-        class="btn btn-primary"
-      >
-        Filtrele
-      </button>
-    </div>
-  </div>
-</div>
+<div class="container"></div>
+<br />
+<select id="currentColor" name="currentColor" [(ngModel)]="currentColor">
+  <option>Tüm Renkler</option>
+  <option *ngFor="let color of colors" [ngValue]="color">
+    {{ color.colors }}
+  </option>
+</select>
+<br />
+<br />
+<button
+  (click)="getColor()"
+  routerLink="/cardetails/"
+  type="button"
+  class="btn btn-primary btn-sm"
+>
+  Filtrele
+</button>

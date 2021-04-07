@@ -5,12 +5,13 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ColorDataService {
-  private messageSource = new BehaviorSubject<string>('');
-  currentMessage = this.messageSource.asObservable();
+  private color = new BehaviorSubject<string>('');
+
+  currentMessage = this.color.asObservable();
 
   constructor() {}
 
   changeMessage(message: string) {
-    this.messageSource.next(message);
+    this.color.next(message);
   }
 }

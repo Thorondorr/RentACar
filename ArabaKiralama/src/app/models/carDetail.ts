@@ -3,4 +3,5 @@ export interface CarDetail{
     brand: string;
     color: string;
     dailyPrice: number;
+    imagePath: string;
 }

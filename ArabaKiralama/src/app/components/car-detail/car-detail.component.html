@@ -1,3 +1,5 @@
+
+
 <div class="mb-3">
   <label for="filterText" class="form-label">Araba Ara</label>
   <input
@@ -12,7 +14,7 @@
   {{ filterText }} aradınız
 </div>
 
-<table class="table table-striped">
+<!--<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">id</th>
@@ -20,12 +22,17 @@
       <th scope="col">Color</th>
       <th scope="col">(Bürüt)Günlük Fiyat</th>
       <th scope="col">(KDV)Günlük Fiyat</th>
+      <th class=""></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr
-      *ngFor="let carDetail of carDetails | filterPipeColor: deneme"
+      *ngFor="
+        let carDetail of carDetails
+          | filterPipeColor: deneme
+          | filterPipeBrand: brand
+      "
       (click)="setCurrentBrand(carDetail)"
     >
       <th scope="row">{{ carDetail.id }}</th>
@@ -44,8 +51,47 @@
       </td>
     </tr>
   </tbody>
-</table>
+</table>-->
 
-<h5 *ngIf="currentCar">{{ currentCar.id }}</h5>
+<!--  
+<h5 *ngIf="currentCar">{{ currentCar.id }}</h5> --->
 
 <!--   routerLink="/carımages/car/{{ carDetail.id }}"-->
+ 
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div
+    class="col"
+    *ngFor="
+      let carDetail of carDetails
+        | filterPipeColor: deneme
+        | filterPipeBrand: brand
+    "
+    
+  >
+    <div class="card" >
+      <img
+        class="custom-img-width"
+        src="https://localhost:44325/{{carDetail.imagePath}}"
+        class="card-img-top"
+        alt="Araba Fotoğrafı"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ carDetail.brand }}</h5>
+        <p class="card-text">Şimdi kirala!</p>
+        <button
+          (click)="addToCart(carDetail)"
+          type="button"
+          class="btn btn-success"
+        >
+          Kirala
+          
+        </button>
+        
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+
+<!--https://localhost:44325/demoImages/1d8944d1-f533-40bc-a3b7-6d8a70ba5477.jpeg-->

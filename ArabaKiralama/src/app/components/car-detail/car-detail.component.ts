@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CarImages } from 'src/app/models/car-images';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarDetailService } from 'src/app/services/car-detail.service';
+import { CarImagesService } from 'src/app/services/car-images.service';
 import { CartService } from 'src/app/services/cart.service';
+import { BranddataService } from 'src/app/services/data-share/branddata.service';
 import { ColorDataService } from 'src/app/services/data-share/color-data.service';
 
 @Component({
@@ -17,14 +20,19 @@ export class CarDetailComponent implements OnInit {
   currentCar: CarDetail;
   filterText: string;
 
+  carImages: CarImages[] = [];
+
   deneme: string = 'mavi';
+  brand: string = 'fako';
 
   constructor(
     private cardetailService: CarDetailService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
     private cartService: CartService,
-    private colorData: ColorDataService
+    private colorData: ColorDataService,
+    private brandData: BranddataService,
+    private carImageService: CarImagesService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +47,7 @@ export class CarDetailComponent implements OnInit {
       }
     });
     this.colorData.currentMessage.subscribe((color) => (this.deneme = color));
+    this.brandData.currentBrand.subscribe((brand) => (this.brand = brand));
   }
   getCarDetail() {
     this.cardetailService.getCardetails().subscribe((response) => {
@@ -68,5 +77,19 @@ export class CarDetailComponent implements OnInit {
     this.cartService.addToCart(car);
   }
 
-  getColorData() {}
+  getCarImagesByCarId(car: CarDetail) {
+    this.carImageService.getCarImagesByCarId(car.id).subscribe((response) => {
+      this.carImages = response.data;
+    });
+  }
+
+  getCarFirstImageByCarId(car: CarDetail) {
+    this.getCarImagesByCarId(car);
+    //return this.carImages;
+    console.log(this.carImages);
+  }
+
+ log(a : any){
+   console.log(a);
+ }
 }

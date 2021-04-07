@@ -10,12 +10,12 @@
   </li>
 </ul>
 -->
-<table class="table table-striped">
-  <!--<thead>
+<!-- <table class="table table-striped">
+  <thead>
     <tr>
       <th scope="col">id</th>
     </tr>
-  </thead> -->
+  </thead> 
   <tbody>
     <tr [class]="getAllBrandClass()" routerLink="/cardetails">
       Tüm Ürünler
@@ -29,9 +29,24 @@
       {{
         brand.brands
       }}
-      <!--<td>{{ brand.brands }}</td>-->
+      <td>{{ brand.brands }}</td>
     </tr>
   </tbody>
-</table>
-<h5 *ngIf="currentBrand">{{ currentBrand.brands }} seçtiniz</h5>
+</table>-->
+
 <!---->
+<div class="row">
+  <div class="col-sm">
+    <select
+      id="currentBrand"
+      name="currentBrand"
+      [(ngModel)]="currentBrand"
+      (change)="onBrandChange()"
+    >
+      <option>Tüm Markalar</option>
+      <option *ngFor="let brand of brands">
+        {{ brand.brands }}
+      </option>
+    </select>
+  </div>
+</div>
