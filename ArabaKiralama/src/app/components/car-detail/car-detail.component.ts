@@ -46,7 +46,7 @@ export class CarDetailComponent implements OnInit {
         this.getCarDetail();
       }
     });
-    this.colorData.currentMessage.subscribe((color) => (this.deneme = color));
+   this.colorData.currentMessage.subscribe((color) => (this.deneme = color));
     this.brandData.currentBrand.subscribe((brand) => (this.brand = brand));
   }
   getCarDetail() {

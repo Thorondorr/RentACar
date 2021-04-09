@@ -1,0 +1,169 @@
+
+<div class="container px-4">
+  <div class="row gx-5">
+    <div class="col">
+     <div class="p-2 border bg-light"><div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://localhost:44325/{{carImages[0].imagesPath}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+           
+          </div>
+        </div>
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div></div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Araç Markası</div>
+              {{carDetails[0].brand}}
+            </div>
+            
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Araç Rengi</div>
+              {{carDetails[0].color}}
+            </div>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Günlük Fiyatı</div>
+              {{carDetails[0].dailyPrice}}
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Kiralanmaak İstenen Tarihler</div>
+              <div class="row">
+                <div class="col">
+                  <label for="form-control" class="form-label">Başlangıç</label>
+                  <input type="date" class="form-control"  id="">
+                </div>
+                <div class="col">
+                  <label for="form-control" class="form-label">Bitiş</label>
+                  <input type="date" class="form-control"  aria-label="Last name" >
+                </div>
+              </div>
+            </div>
+          </li><br>     
+          <button (click)="onButtonClicked()" routerLink="/payment/{{carDetails[0].id}}" type="button" class="btn btn-outline-success">Kirala</button>
+        </ol>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--  <div class="carousel-item">
+          <img   src="https://localhost:44325/{{carImages[1].imagesPath}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://localhost:44325/{{carImages[2].imagesPath}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+           
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://localhost:44325/{{carImages[3].imagesPath}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+          
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://localhost:44325/{{carImages[4].imagesPath}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            
+          </div>
+        </div>
+      -->
+
+
+
+
+
+
+
+<!--
+
+
+<form>
+
+  <div class="mb-3">
+    <label for="arac-model" class="form-label" >Araç Modeli</label>
+    <textarea
+      type="text"
+      class="form-control"
+      id="arac-model"
+    > {{carDetails[0].brand}}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="musteriLabel" class="form-label">Araç Rengi</label>
+    <input
+      type="text"
+      class="form-control"
+      id="müsteriAdı"
+      aria-describedby="müsteriAdı"
+    />
+  </div>
+  <div class="row">
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Model Tarihi</label>
+      <input type="date" class="form-control" id="exampleInputPassword1" />
+    </div>
+    <div class="mb-3">
+      <label for="money" class="form-label">Günlük Fiyatı</label>
+      <input type="number" class="form-control" id="money" />
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Açıklama</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+-->
+
+
+
+<!--carImages[0].imagesPath-->
+
+<!---->
+
+<!--carImages<ngb-carousel *ngIf="carImages">
+            <ng-template ngbSlide *ngFor="let carImages of carImages">
+              <div class="picsum-img-wrapper">
+                <img src="https://localhost:44325/{{carImages.imagesPath}}" alt="Random first slide">
+              </div>
+              <div class="carousel-caption">
+                <h3>First slide label</h3>
+                <p>{{carImages.imagesPath}}</p>
+              </div>
+            </ng-template>
+          </ngb-carousel>-->

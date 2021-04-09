@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgbConfig} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,9 @@ import { FilterPipeBrandPipe } from './pipes/filter-pipe-brand.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { CarExtraDetailComponent } from './components/car-extra-detail/car-extra-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,9 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     FilterPipeCarPipe,
     FilterPipeBrandPipe,
     CartSummaryComponent,
+    CarExtraDetailComponent,
+    PaymentComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -50,6 +58,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
